@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 public class InsereFinalFilaPrioridade implements FilaPrioridade {
 
@@ -9,12 +10,25 @@ public class InsereFinalFilaPrioridade implements FilaPrioridade {
 	}
 	
 	// criar um Pair e adicionar no fim da fila
-	public void add(String elemento, int prioridade) {}
+	public void add(String elemento, int prioridade) {
+		Pair par = new Pair(elemento, prioridade);
+		fila.add(par);
+	}
 
 
 	// buscar pelo elemento de maior prioridade na fila.
 	public String removeNext() {
-		return "";
+		if (fila.isEmpty()) throw new NoSuchElementException();
+		int iMaior = 0;
+		Pair maxPrio = this.fila.get(0);
+		for(int i = 0; i < this.fila.size(); i++){
+			if(fila.get(i).getPrioridade() > maxPrio.getPrioridade()){
+				maxPrio = fila.get(i);
+				iMaior = i;
+			} 
+		}
+		this.fila.remove(iMaior);
+		return maxPrio.getElemento();
 	}
 
 }

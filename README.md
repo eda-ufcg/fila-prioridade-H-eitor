@@ -1,8 +1,8 @@
 # Identificação
 
-* Nome: 
-* Email (@ccc): 
-* Matrícula: 
+* Nome: Heitor de Souza Alves
+* Email (@ccc): heitor.souza.alves@ccc.ufcg.edu.br
+* Matrícula: 123110811
 
 # Roteiro: Fila de Prioridade
 
