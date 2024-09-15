@@ -17,16 +17,15 @@ public class InsereOrdenadoFilaPrioridade implements FilaPrioridade {
 		if (this.head == -1) this.head = 0;
 		
 		this.last = (this.last + 1) % this.fila.length;
-		fila[last] = aux;
+		fila[this.last] = aux;
 		
-		int i = last;
-		while (aux.getPrioridade() > fila[(i - 1) % this.fila.length].getPrioridade()) {
+		int i = this.last;
+		while (i - 1 >= this.head && this.fila[i].getPrioridade() > this.fila[i - 1].getPrioridade()) {
 			Pair newPair = this.fila[i];
-			this.fila[i] = this.fila[(i - 1) % this.fila.length];
-			this.fila[(i - 1) % this.fila.length] = newPair;
-			i = (i - 1) % this.fila.length;
+			this.fila[i] = this.fila[i - 1];
+			this.fila[i - 1] = newPair;
+			i--;
 		}
-
 	}
 
 	// remover e retornar o primeiro elemento do array, que é o de maior prioridade. lembrar manipular head e tail
